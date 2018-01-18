@@ -11,8 +11,13 @@ congurent = []
 points = []
 triangles_all = []
 triangles_possible = []
+triangle_pairs = []
 
 class coordinate(object):
+    """
+    coordinate class for easy storing of points
+    
+    """
     def __init__(self,x,y):
         self.x = x
         self.y = y
@@ -29,6 +34,10 @@ class coordinate(object):
         return "<%s,%s>"%(self.x, self.y)
     
 class triangle(object):
+    """
+   class triangle which keeps a record of sides
+    """
+    
     def __init__(self,p1,p2,p3):
         self.p1 = p1
         self.p2 = p2
@@ -49,6 +58,10 @@ class triangle(object):
         return s
 
 def ispossibletriangle(triang):
+    """
+    This checks given any triangle object as input weather it is a valid triangle or not 
+    """
+    
     sp = triang.sides()
     if sp[0] < sp[1] + sp[2]:
         return True
@@ -57,10 +70,13 @@ def ispossibletriangle(triang):
 
 
 def cong(t1,t2):
+    """
+    t1 and t2 are two triangle objects , it appends the result of congurent triangles 
+    """
     if t1.sides() == t2.sides():
         congurent.append([t1,t2])
         
-
+# it takes the input from the user as points and store them as coordinate obejcts 
 for i in range(int(input())):
     a,b = list(map(int,input().split()))
     points.append(coordinate(a,b))
@@ -74,4 +90,13 @@ for points in triangles_all:
     to = triangle(pl1,pl2,pl3)
     if ispossibletriangle(to):
         triangles_possible.append(to)
+        
+triangle_pairs.extend(itertools.combinations(triangles_possible, 2))
 
+for m in triangle_pairs:
+    tq1 = m[0]
+    tq2 = m[1]
+    cong(tq1,tq2)
+    
+print('Congurent Triangles are',cong)
+    
