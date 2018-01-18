@@ -5,9 +5,12 @@ Created on Thu Jan 18 15:34:44 2018
 
 @author: ashwin
 """
+import itertools 
+
 congurent = []
 points = []
-triangles = []
+triangles_all = []
+triangles_possible = []
 
 class coordinate(object):
     def __init__(self,x,y):
@@ -61,8 +64,16 @@ def cong(t1,t2):
 for i in range(int(input())):
     a,b = list(map(int,input().split()))
     points.append(coordinate(a,b))
-    print(points)
-    
+
+triangles_all.extend(itertools.combinations(points, 3))
+
+for points in triangles_all:
+    pl1 = points[0]
+    pl2 = points[1]
+    pl3 = points[2]
+    to = triangle(pl1,pl2,pl3)
+    if ispossibletriangle(to):
+        triangles_possible.append(to)
 
 
     
