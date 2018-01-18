@@ -33,10 +33,13 @@ class triangle(object):
         s.append(self.p1.distance(self.p2))
         s.append(self.p2.distance(self.p3))
         s.append(self.p3.distance(self.p1))
-        return s.sort()
+        s.sort()
+        return s
 
 congurent = []
 
 def cong(t1,t2):
-    return 0
+    if t1.sides() == t2.sides():
+        congurent.append((t1,t2,))
+    return congurent
     
