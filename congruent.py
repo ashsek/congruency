@@ -4,6 +4,8 @@
 Created on Thu Jan 18 15:34:44 2018
 
 @author: ashwin
+
+keep a check on negative coordinates :/
 """
 import itertools 
 
@@ -98,5 +100,5 @@ for m in triangle_pairs:
     tq2 = m[1]
     cong(tq1,tq2)
     
-print('Congurent Triangles are',cong)
+print('Congurent Triangles are',congurent)
     
