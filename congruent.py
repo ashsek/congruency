@@ -5,6 +5,9 @@ Created on Thu Jan 18 15:34:44 2018
 
 @author: ashwin
 """
+congurent = []
+points = []
+triangles = []
 
 class coordinate(object):
     def __init__(self,x,y):
@@ -17,7 +20,10 @@ class coordinate(object):
         return (dx**2 + dy**2)**0.5
     
     def __str__(self):
-        return "(%s,%s)"%(self.x, self.y)
+        return "<%s,%s>"%(self.x, self.y)
+    
+    def __repr__(self):
+        return "<%s,%s>"%(self.x, self.y)
     
 class triangle(object):
     def __init__(self,p1,p2,p3):
@@ -26,6 +32,9 @@ class triangle(object):
         self.p3 = p3
     
     def __str__(self):
+        return "Triangle(%s,%s,%s)"%(self.p1, self.p2, self.p3)
+    
+    def __repr__(self):
         return "Triangle(%s,%s,%s)"%(self.p1, self.p2, self.p3)
         
     def sides(self):
@@ -36,10 +45,16 @@ class triangle(object):
         s.sort()
         return s
 
-congurent = []
+
 
 def cong(t1,t2):
     if t1.sides() == t2.sides():
-        congurent.append((t1,t2,))
-    return congurent
+        congurent.append([t1,t2])
+        
+
+for i in range(int(input())):
+    a,b = list(map(int,input().split()))
+    points.append(coordinate(a,b))
+    print(points)
+
     
