@@ -45,6 +45,12 @@ class triangle(object):
         s.sort()
         return s
 
+def ispossibletriangle(triang):
+    sp = triang.sides()
+    if sp[0] < sp[1] + sp[2]:
+        return True
+    else:
+        return False
 
 
 def cong(t1,t2):
@@ -56,5 +62,7 @@ for i in range(int(input())):
     a,b = list(map(int,input().split()))
     points.append(coordinate(a,b))
     print(points)
+    
+
 
     
