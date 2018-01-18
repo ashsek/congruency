@@ -75,5 +75,3 @@ for points in triangles_all:
     if ispossibletriangle(to):
         triangles_possible.append(to)
 
-
-    
