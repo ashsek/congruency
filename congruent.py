@@ -44,15 +44,27 @@ for m in triangle_pairs:
     
 print('Congurent Triangles are',hl.congurent)
 
-#[[1,1], [2,1], [2,2], [1,2]]
+"""
+coord = [[1,1], [2,1], [2,2], [1,2]]
+coord.append(coord[0]) #repeat the first point to create a 'closed loop'
+
+xs, ys = zip(*coord) #create lists of x and y values
+
+plt.figure()
+plt.plot(xs,ys) 
+"""
 for u in hl.congurent:
-    a0 = [[u[0].p1.x,u[0].p1.y],[u[0].p2.x,u[0].p2.y],[u[0].p3.x,u[0].p3.y]]
-    a1 = [[u[1].p1.x,u[1].p1.y],[u[1].p2.x,u[1].p2.y],[u[1].p3.x,u[1].p3.y]]
+    a0 = [[u[0].p1.x,u[0].p1.y],[u[0].p2.x,u[0].p2.y],[u[0].p3.x,u[0].p3.y],[u[0].p1.x,u[0].p1.y]]
+    a1 = [[u[1].p1.x,u[1].p1.y],[u[1].p2.x,u[1].p2.y],[u[1].p3.x,u[1].p3.y],[u[1].p1.x,u[1].p1.y]]
     if a0 not in plot:
         plot.append(a0)
     if a1 not in plot:
         plot.append(a1)
-    break
 
+for coord in plot:
+    xs, ys = zip(*coord) #create lists of x and y values
+    plt.figure('triangles')
+    plt.plot(xs,ys) 
+    
 print('-----------',plot)
     
