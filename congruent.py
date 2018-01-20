@@ -101,4 +101,3 @@ for m in triangle_pairs:
     cong(tq1,tq2)
     
 print('Congurent Triangles are',congurent)
-    
